@@ -1,4 +1,3 @@
-#include<vector>
 #include "../include/gameboard.hpp";
 
 int GameBoard::getIndex(int x, int y) const {
