@@ -4,11 +4,11 @@
 #include "gameboard.hpp"
 #include<vector>
 #include<iostream>
+#include<string>
 
 class Renderer {
     private:
         unsigned int vw, vh;
-        unsigned int frame;
         char filled, empty;
 
     public:
@@ -16,7 +16,9 @@ class Renderer {
         ~Renderer();
 
         void clear() const;
-        void renderGame(const GameBoard& game);
+        void renderGame(const GameBoard& game) const;
+        void renderHLine() const;
+        void renderMetric(std::string label, int metric) const;
 
 };
 

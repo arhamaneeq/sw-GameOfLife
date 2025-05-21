@@ -2,20 +2,25 @@
 #include<thread>
 #include<chrono>
 
+#include "../include/gameboard.hpp"
+#include "../include/renderer.hpp"
+
 int main() {
     const int width = 40, height = 10;
-    int i = 0;
+    GameBoard game(width, height);
+    Renderer renderer(width, height);
 
     while (true) {
-        std::cout << "\033[H\033[J";
-        for (int y = 0; y < height; ++y) {
-            for (int x = 0; x < width; ++x) {
-                std::cout << (((x + y + i) % 2 == 0) ?  "#" : " "); 
-            }
-            std::cout << "\n";
-        }
+        renderer.clear();
+        renderer.renderGame(game);
+        renderer.renderHLine();
+        renderer.renderMetric("Population", game.getPopulation());
+        renderer.renderMetric("Generation", game.getGeneration());
 
-        i++;
+
+        game.nextStep();
+
+
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
 
