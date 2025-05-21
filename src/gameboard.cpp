@@ -1,4 +1,3 @@
-#include<iostream>
 #include<vector>
 
 class GameBoard {
@@ -13,7 +12,7 @@ class GameBoard {
             return wrap(x,W) + W * wrap(y,H); // toroidal wrapping
         }
 
-        const bool nextCellStateIsLive(int x, int y) const {
+        bool nextCellStateIsLive(int x, int y) const {
             int livingNeighbours = 0;
             bool currentCellIsAlive = peek(x, y);
 
@@ -44,23 +43,23 @@ class GameBoard {
     public:
         GameBoard(int w, int h) : W(w), H(h), population(0), generation(0), grid(w*h, false) {};
         
-        const bool peek(int x, int y) const {
+        bool peek(int x, int y) const {
             return grid[getIndex(x, y)];
         }
         
-        const int getPopulation() const {
+        int getPopulation() const {
             return population;
         }
 
-        const int getGeneration() const {
+        int getGeneration() const {
             return generation;
         }
 
-        const int getWidth() const {
+        int getWidth() const {
             return W;
         }
 
-        const int getHeight() const {
+        int getHeight() const {
             return H;
         }
 
