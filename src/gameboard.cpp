@@ -78,32 +78,3 @@ void GameBoard::nextStep() {
     grid = std::move(newGrid);
     ++generation;
 }
-
-void GameBoard::generateGlider(int x, int y){
-    set(x + 1, y + 0, true);
-    set(x + 2, y + 1, true);
-    set(x + 0, y + 2, true);
-    set(x + 1, y + 2, true);
-    set(x + 2, y + 2, true);
-}
-
-void GameBoard::generateToad(int x, int y) {
-    set(x + 1, y + 0, true);
-    set(x + 2, y + 0, true);
-    set(x + 3, y + 0, true);
-    set(x + 0, y + 1, true);
-    set(x + 1, y + 1, true);
-    set(x + 2, y + 1, true);
-}
-
-void GameBoard::generateBeacon(int x, int y) {
-    set(x + 0, y + 0, true);
-    set(x + 1, y + 0, true);
-    set(x + 0, y + 1, true);
-    set(x + 1, y + 1, true);
-
-    set(x + 2, y + 2, true);
-    set(x + 3, y + 2, true);
-    set(x + 2, y + 3, true);
-    set(x + 3, y + 3, true);
-}

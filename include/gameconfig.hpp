@@ -1,11 +1,12 @@
+#ifndef GAMECONFIG_HPP
+#define GAMECONFIG_HPP
+
 #include "gameboard.hpp"
 
 class GameBoardConfigurator {
     private:
 
     public:
-        static void genFromText(std::string feed, GameBoard& game);
-
         static void generateGlider(int x, int y, GameBoard& game);
         static void generateLWSS(int x, int y, GameBoard& game);
         static void generateMWSS(int x, int y, GameBoard& game);
@@ -25,3 +26,5 @@ class GameBoardConfigurator {
 
 
 };
+
+#endif

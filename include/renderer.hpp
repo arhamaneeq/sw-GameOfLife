@@ -20,10 +20,12 @@ class Renderer {
         // Render Functions
         void renderGame(const GameBoard& game) const;
         void renderHLine() const;
+        void renderELine() const;
 
         // Text
         void renderMetric(std::string label, int metric) const;
         void renderText(std::string text) const;
+
 
 };
 
