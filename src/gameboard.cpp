@@ -1,4 +1,4 @@
-#include "../include/gameboard.hpp";
+#include "../include/gameboard.hpp"
 
 int GameBoard::getIndex(int x, int y) const {
     auto wrap = [](int i, int max) {return ((i % max + max) % max);};
@@ -29,6 +29,7 @@ cellChange GameBoard::nextCellStateIsLive(int x, int y) const {
 
 void GameBoard::set(int x, int y, bool val) {
     grid[getIndex(x, y)] = val;
+    if (val) {population++;};
 }
 
 GameBoard::GameBoard(int w, int h) : W(w), H(h), population(0), generation(0), grid(w*h, false) {};
@@ -76,4 +77,33 @@ void GameBoard::nextStep() {
 
     grid = std::move(newGrid);
     ++generation;
+}
+
+void GameBoard::generateGlider(int x, int y){
+    set(x + 1, y + 0, true);
+    set(x + 2, y + 1, true);
+    set(x + 0, y + 2, true);
+    set(x + 1, y + 2, true);
+    set(x + 2, y + 2, true);
+}
+
+void GameBoard::generateToad(int x, int y) {
+    set(x + 1, y + 0, true);
+    set(x + 2, y + 0, true);
+    set(x + 3, y + 0, true);
+    set(x + 0, y + 1, true);
+    set(x + 1, y + 1, true);
+    set(x + 2, y + 1, true);
+}
+
+void GameBoard::generateBeacon(int x, int y) {
+    set(x + 0, y + 0, true);
+    set(x + 1, y + 0, true);
+    set(x + 0, y + 1, true);
+    set(x + 1, y + 1, true);
+
+    set(x + 2, y + 2, true);
+    set(x + 3, y + 2, true);
+    set(x + 2, y + 3, true);
+    set(x + 3, y + 3, true);
 }

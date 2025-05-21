@@ -17,10 +17,11 @@ class GameBoard {
 
         int getIndex(int x, int y) const;
         void set(int x, int y, bool val);
-
+        
         cellChange nextCellStateIsLive(int x, int y) const;
-
+        
     public:
+
         GameBoard(int w, int h);
 
         bool peek(int x, int y) const;
@@ -30,6 +31,10 @@ class GameBoard {
         int getHeight() const;
 
         void nextStep();
+
+        void generateGlider(int x, int y);
+        void generateToad(int x, int y);
+        void generateBeacon(int x, int y);
 };
 
 #endif

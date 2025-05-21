@@ -6,9 +6,12 @@
 #include "../include/renderer.hpp"
 
 int main() {
-    const int width = 40, height = 10;
+    const int width = 50, height = 10;
     GameBoard game(width, height);
     Renderer renderer(width, height);
+
+    game.generateBeacon(0, 0);
+    game.generateGlider(15, 15);
 
     while (true) {
         renderer.clear();
@@ -21,7 +24,7 @@ int main() {
         game.nextStep();
 
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     return 0;
