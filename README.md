@@ -16,3 +16,15 @@ sw-GameOfLife/
 ├── Makefile             # Build instructions using make
 └── README.md            # Project overview and instructions
 ```
+
+Build using
+
+```bash
+g++ -std=c++17 -Iinclude src/*.cpp -o game
+```
+
+and execute using
+
+```bash
+./game.exe
+```
