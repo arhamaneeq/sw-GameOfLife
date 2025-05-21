@@ -3,16 +3,22 @@
 
 #include<vector>
 
+enum class cellChange {
+    Persist,
+    Reproduce,
+    Perish
+};
+
 class GameBoard {
     private:
         int W, H;
-        mutable int population, generation;
+        int population, generation;
         std::vector<bool> grid;
 
         int getIndex(int x, int y) const;
         void set(int x, int y, bool val);
 
-        bool nextCellStateIsLive(int x, int y) const;
+        cellChange nextCellStateIsLive(int x, int y) const;
 
     public:
         GameBoard(int w, int h);
