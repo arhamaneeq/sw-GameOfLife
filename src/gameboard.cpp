@@ -4,18 +4,16 @@
 class GameBoard {
     private:
         int W, H;
-        int population, generation;
+        mutable int population, generation;
         std::vector<bool> grid;
 
-        static inline int wrap(int i, int max) {
-            return ((i % max + max) % max);
-        }
-
         int getIndex(int x, int y) const {
-            return wrap(x,W) + W * wrap(y,H);
+
+            auto wrap = [](int i, int max) {return ((i % max + max) % max);};
+            return wrap(x,W) + W * wrap(y,H); // toroidal wrapping
         }
 
-        bool nextCellState(int x, int y) {
+        const bool nextCellStateIsLive(int x, int y) const {
             int livingNeighbours = 0;
             bool currentCellIsAlive = peek(x, y);
 
@@ -27,13 +25,20 @@ class GameBoard {
                     }
                 }
             }
+
             if (!currentCellIsAlive && livingNeighbours == 3) {
+                population++;
                 return true; // reproduction
             } else if (currentCellIsAlive && (livingNeighbours < 2 || livingNeighbours > 3)) {
+                population--;
                 return false; // overpop / underpop
             } else {
                 return currentCellIsAlive; // persistence
             }
+        }
+
+        void set(int x, int y, bool val) {
+            grid[getIndex(x, y)] = val;
         }
 
     public:
@@ -41,5 +46,34 @@ class GameBoard {
         
         const bool peek(int x, int y) const {
             return grid[getIndex(x, y)];
+        }
+        
+        const int getPopulation() const {
+            return population;
+        }
+
+        const int getGeneration() const {
+            return generation;
+        }
+
+        const int getWidth() const {
+            return W;
+        }
+
+        const int getHeight() const {
+            return H;
+        }
+
+        void nextStep() {
+            std::vector<bool> newGrid(W*H, false);
+
+            for (int y = 0; y < H; y++) {
+                for (int x = 0; x < W; x++) {
+                    newGrid[getIndex(x, y)] = nextCellStateIsLive(x, y);
+                }
+            }
+
+            grid = std::move(newGrid);
+            ++generation;
         }
 };

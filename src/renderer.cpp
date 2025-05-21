@@ -14,10 +14,10 @@ class Renderer {
             std::cout << "\033[H\033[J";
         }
 
-        void renderGrid(gameboard& grid) {
+        void renderGame(const GameBoard& game) {
             for (int y = 0; y < vh; ++y) {
                 for (int x = 0; x < vw; ++x) {
-                    std::cout << grid.peek(x, y) ? "#" : " ";
+                    std::cout << game.peek(x, y) ? "#" : " ";
                 }
                 std::cout << "\n";
             }
