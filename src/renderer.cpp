@@ -25,6 +25,11 @@ void Renderer::renderHLine() const {
 }
 
 void Renderer::renderMetric(std::string label, int metric) const {
-    std::cout << label << ": " << metric;
+    std::cout << "  " << label << ": " << metric;
+    std::cout << "\n";
+}
+
+void Renderer::renderText(std::string text) const {
+    std::cout << "  " << text;
     std::cout << "\n";
 }

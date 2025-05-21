@@ -2,6 +2,7 @@
 #define GAMEBOARD_HPP
 
 #include<vector>
+#include "gameconfig.hpp"
 
 enum class cellChange {
     Persist,
@@ -19,6 +20,8 @@ class GameBoard {
         void set(int x, int y, bool val);
         
         cellChange nextCellStateIsLive(int x, int y) const;
+
+        friend class GameBoardConfigurator;
         
     public:
 
