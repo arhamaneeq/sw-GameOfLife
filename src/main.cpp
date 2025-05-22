@@ -8,12 +8,14 @@
 #include "../include/gameboard.hpp"
 #include "../include/renderer.hpp"
 #include "../include/gameconfig.hpp"
+#include "../include/utility.hpp"
 
 int main() {
     std::ios::sync_with_stdio(false);
     std::cin.tie(nullptr);
 
-    const int width = 150, height = 50;
+    const int width = Utils::getWindowSize()[0]; 
+    const int height = Utils::getWindowSize()[1] - 8;
     GameBoard game(width, height);
     Renderer renderer(width, height);
 
