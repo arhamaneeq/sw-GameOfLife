@@ -9,19 +9,26 @@ void Renderer::clear() const {
 }
 
 void Renderer::renderGame(const GameBoard& game) const {
+    std::ostringstream oss;
+
     for (int y = 0; y < vh; ++y) {
         for (int x = 0; x < vw; ++x) {
-            std::cout << (game.peek(x, y) ? filled : empty);
+            oss << (game.peek(x, y) ? filled : empty);
         }
-        std::cout << "\n";
+        oss << "\n";
     }
+
+    std::cout << oss.str() << std::flush;
 }
 
 void Renderer::renderHLine() const {
+    std::ostringstream oss;
+
     for (int x = 0; x < vw; ++x) {
-        std::cout << "-";
+        oss << "-";
     }
-    std::cout << "\n";
+    oss << "\n";
+    std::cout << oss.str() << std::flush;
 }
 
 void Renderer::renderELine() const {
@@ -29,11 +36,13 @@ void Renderer::renderELine() const {
 }
 
 void Renderer::renderMetric(std::string label, int metric) const {
-    std::cout << "  " << label << ": " << metric;
-    std::cout << "\n";
+    std::ostringstream oss;
+    oss << "  " << label << ": " << metric << "\n";
+    std::cout << oss.str() << std::flush;
 }
 
 void Renderer::renderText(std::string text) const {
-    std::cout << "  " << text;
-    std::cout << "\n";
+    std::ostringstream oss;
+    oss << "  " << text << "\n";
+    std::cout << oss.str() << std::flush;
 }

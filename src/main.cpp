@@ -10,7 +10,10 @@
 #include "../include/gameconfig.hpp"
 
 int main() {
-    const int width = 50, height = 10;
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+
+    const int width = 150, height = 50;
     GameBoard game(width, height);
     Renderer renderer(width, height);
 
