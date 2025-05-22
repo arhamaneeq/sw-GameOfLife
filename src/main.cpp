@@ -3,6 +3,8 @@
 #include<chrono>
 #include<sstream>
 
+
+
 #include "../include/gameboard.hpp"
 #include "../include/renderer.hpp"
 #include "../include/gameconfig.hpp"
@@ -42,7 +44,32 @@ int main() {
             std::string shape;
             int x, y;
             iss >> shape >> x >> y;
-            // TODO:
+            
+            if (shape == "glider") {
+                GameBoardConfigurator::generateGlider(x, y, game);
+            } else if (shape == "lwss") {
+                GameBoardConfigurator::generateLWSS(x, y, game); 
+            } else if (shape == "mwss") {
+                GameBoardConfigurator::generateMWSS(x, y, game);
+            } else if (shape == "hwss") {
+                GameBoardConfigurator::generateHWSS(x, y, game);
+            } else if (shape == "blinker") {
+                GameBoardConfigurator::generateBlinker(x, y, game);
+            } else if (shape == "toad") {
+                GameBoardConfigurator::generateToad(x, y, game);
+            } else if (shape == "beacon") {
+                GameBoardConfigurator::generateBeacon(x, y, game);
+            } else if (shape == "pulsar") {
+                GameBoardConfigurator::generatePulsar(x, y, game);
+            } else if (shape == "pentad") {
+                GameBoardConfigurator::generatePentaD(x, y, game);
+            } else if (shape == "gosper") {
+                GameBoardConfigurator::generateGosper(x, y, game);
+            } else if (shape == "diehard") {
+                GameBoardConfigurator::generateDiehard(x, y, game);
+            } else if (shape == "acorn") {
+                GameBoardConfigurator::generateAcorn(x, y, game);
+            }
 
         } else if (cmd == "r") {
             break;
