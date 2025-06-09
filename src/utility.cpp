@@ -1,11 +1,11 @@
 #include "../include/utility.hpp"
 
-#if defined(__UNIX__) || defined(__APPLE__)
+#if defined(__UNIX__) || defined(__linux__) || defined(__APPLE__)
 
 #include <sys/ioctl.h>
 #include <unistd.h>
 
-TerminalSize TerminalUtils::getTerminalSize() {
+std::vector<int> Utils::getWindowSize() {
     struct winsize w;
     std::vector dim(2,0);
     if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &w) == -1) {
@@ -35,5 +35,3 @@ std::vector<int> Utils::getWindowSize() {
 }
 
 #endif
-
-//TODO: Linux
