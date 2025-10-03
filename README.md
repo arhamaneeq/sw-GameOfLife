@@ -12,13 +12,6 @@ The Game of Life is a 0-player game played on a 2D plane (traditionally infinite
 
 The player *plays* by setting up the initial state, and then observes the game evolve on its own. The Game is Turing Complete.
 
-### Conway
-John Horton Conway was a prolific English mathematician. His body of work involves diverse fields: number theory, geometry, game theory, knot theory, and seminal work in group theory.  Conway was not merely a generator of results but a maker of frameworks. He had a knack for seeing deep structures in seemingly trivial patterns and built entire mathematical disciplines around them. He inspired a generation of mathematicians to play with rigor — an ethos rare in an era increasingly marked by technical specialization. Growing up, mathematical heroes are sparse to find. Newton and Euler were distant, elevated to mythical status. Not Conway. Conway was, firstly, alive during my childhood, and secondly, he was vivid and colourful, and in interviews (such as on Numberphile) his enthusiasm is radiant, not surprising from a man dubbed "the world's most charismatic mathematician." He was as far as I was concerned, a giant.
-
-Like many people whose body of work spans a variety of fields and exhibits deep and technical sophistication, such as Radiohead or Pattinson, John Conway too is popularly know by one of his simplest creations. The Game of Life, devised on pen and paper, propelled Conway to popular stardom. 
-
-John Conway died on 11 April, 2020.
-
 ## Implementation
 ### Running the Game Yourself
 If the executable file (`.exe`) does not exist, navigate to the root folder and type
@@ -62,7 +55,7 @@ sw-GameOfLife/
 ```
 
 #### Gameboard & Gameconfig
-The `gameboard.hpp` and gameconfig.hpp` provide the `GameBoard` and `GameBoardConfigurator` classes respectively. The `GameBoard` class implements the core logic of Conways's Game of Life, while `GameBoardConfigurator` provides the templates to generate a small selection of named patterns.
+The `gameboard.hpp` and `gameconfig.hpp` provide the `GameBoard` and `GameBoardConfigurator` classes respectively. The `GameBoard` class implements the core logic of Conways's Game of Life, while `GameBoardConfigurator` provides the templates to generate a small selection of named patterns.
 #### Renderer
 The `renderer.hpp` header provides the `Renderer` class, which handles all logic for displaying of the game board (via `.renderGame(...)`) as well as associated text and lines. It currently has support for text (`.renderText(...)`), labelled numbers (`.renderMetric(...)`), horizontal (`.renderHLine()`) and empty (`.renderELine()`) lines and a clear function.
 #### Cross-Platform CLI Support
